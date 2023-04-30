@@ -1,0 +1,20 @@
+const express =require("express")
+const mongoose=require("mongoose")
+const dotenv=require("dotenv").config()
+const cors=require("cors")
+const authController = require("./controllers/authController")
+const PropertyController = require("./controllers/propertyController")
+const uploadController = require("./controllers/uploadController")
+const app=express()
+
+mongoose.set("strictQuery",false)
+mongoose.connect(process.env.MONGO_URL,()=>console.log("MongoDb Connected Succefully"))
+app.use(cors())
+app.use(express.json())
+app.use(express.urlencoded({extended:true}))
+app.use("/auth",authController)
+app.use("/property",PropertyController)
+app.use("/upload",uploadController)
+
+
+app.listen(process.env.PORT,()=>console.log("hello RoyalRealEstate"))

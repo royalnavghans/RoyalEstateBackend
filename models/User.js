@@ -16,7 +16,7 @@ const userSchema=new mongoose.Schema({
         required:true,
         min:6
     },
-    profileFieldImg:{
+    profileImg:{
         type:String,
         default:""
     },

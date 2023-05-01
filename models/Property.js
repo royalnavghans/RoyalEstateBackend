@@ -14,12 +14,12 @@ const PropertySchema=mongoose.Schema({
     type:{
         type:String,
         enum:["beach","mountain","village"],
-        min:20
+        required:true
     },
     desc:{
         type:String,
         required:true,
-        min:20
+        min:10
     },
     img:{
         type:String,
